@@ -1,0 +1,95 @@
+function B() {} : isso é função construtora
+
+new B() equivale a <B />
+TUDO que chamo usando notação de tag é um component
+pra ser um component tem que ter retorno, que de p mostrar na tela
+simbologia para js é um par de chaves
+
+function App() {
+  return (
+    <div>oi {2+2} </div>        misturou html com js
+  );
+}
+
+export default App;
+
+tag vazia é react fragment <> </>
+
+document significa toda a pagina
+
+Estado determina a mudança de um fator e não necessariamente a mudança de uma variavel é uma mudança de Estado
+Sempre que eu quiser alterar um estado chamo set
+
+Objetos state, props e context
+import { useState } from "react";
+
+function App() {
+  const [nome,setNome] = useState("");
+  const [idade,setIdade] = useState(""); //20 deve estar entre aspas pois o terget.value é sempre texto
+  return (
+    <>
+      <A nome={nome} idade={idade}/>
+ 
+      <div>
+        <label> Nome</label>
+        <input value = {nome} onChange={(e)=>setNome(e.target.value)}/>
+      </div>
+      <div>
+        <label> Idade</label>
+        <input value = {idade} onChange={(e)=>setIdade(e.target.value)}/>
+      </div>
+      <div> Nome: {nome} Idade: {idade}</div>
+    </>
+  );
+}
+
+export default App;
+
+//sempre que quiser passar de pai para filho é props
+function A(props:Props){
+  return <B {...props} />;
+}
+
+
+function B(props:Props){
+  return <C nome={props.nome} idade={props.idade} />;
+}
+interface Props{
+  nome: string;
+  idade: string;
+}
+
+
+function C(props: Props){
+  return <div><div>Nome:{props.nome} Idade:{props.idade}</div></div>
+}
+
+
+PARA CRIAR HOOCKS
+
+//sempre que pedir um obj e nao tiver coloca {}
+//dentro do contexto só pode trafegar nome e idade
+
+chave verde é json
+chave azul é js
+
+i = i + 1
+tudo que estiver a esquerda é escrita
+tudo que estiver a direita é leitura
+
+estruturar é criar objeto
+
+a esquerda do igual é desestruturação
+se nao houver = está estruturando 
+
+function teste(x){
+        x =10
+}
+teste(10);
+
+
+function cod({nome}){
+        {nome} = {nome: "Ana", "Idade: 22"}
+
+}
+cod({nome: "Ana", idade:22})
